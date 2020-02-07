@@ -1,2 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.sayhallo.halloimmersive" />
+    package="cn.sayhallo.halloimmersive" >
+
+    <application>
+        <activity android:name=".test.ImmersiveItemAdapterActivity" />
+    </application>
+</manifest>

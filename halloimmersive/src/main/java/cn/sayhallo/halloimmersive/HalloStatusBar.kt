@@ -21,34 +21,25 @@ object HalloStatusBar {
 
     fun setFragmentAdapter(fragment: Fragment, rootView: View, headerIsImage: Boolean) {
         /*
-        适配安卓4.4--5.0
-         */
+       适配安卓4.4--5.0
+        */
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            if (!headerIsImage) {
-                val resourceId = fragment.activity!!.resources.getIdentifier(
-                    "status_bar_height",
-                    "dimen",
-                    "android"
-                )
-                val height = fragment.activity!!.resources.getDimensionPixelSize(resourceId)
-                rootView.setPadding(0, height, 0, 0)
-            }
+            val resourceId = fragment.activity!!.resources.getIdentifier(
+                "status_bar_height",
+                "dimen",
+                "android"
+            )
+            val height = fragment.activity!!.resources.getDimensionPixelSize(resourceId)
+            rootView.setPadding(0, height, 0, 0)
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (!headerIsImage) {
-                val resourceId = fragment.activity!!.resources.getIdentifier(
-                    "status_bar_height",
-                    "dimen",
-                    "android"
-                )
-                val height = fragment.activity!!.resources.getDimensionPixelSize(resourceId)
-                //                ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams)  rootView.getLayoutParams();
-                //                p.setMargins(0,height,0,0);
-                rootView.setPadding(0, height, 0, 0)
-                //                rootView.set(0, height, 0, 0);
-            }
-        }/*
-        适配安卓5.0以上
-         */
+            val resourceId = fragment.activity!!.resources.getIdentifier(
+                "status_bar_height",
+                "dimen",
+                "android"
+            )
+            val height = fragment.activity!!.resources.getDimensionPixelSize(resourceId)
+            rootView.setPadding(0, height, 0, 0)
+        }
     }
 
     /*
@@ -92,29 +83,24 @@ object HalloStatusBar {
          */
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             activity.window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             activity.window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             //注意要清除 FLAG_TRANSLUCENT_STATUS flag
             activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            activity.window.statusBarColor = Color.parseColor("#000000")
+            activity.window.statusBarColor = Color.parseColor("#00000000")
 
-            //            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            // 注意要清除 FLAG_TRANSLUCENT_STATUS flag
-            //            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            //            getWindow().setStatusBarColor(getResources().getColor(R.color.status_translution));
-            activity.window.decorView.systemUiVisibility =
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            activity.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        }
 
-            /*
+        /*
                适配6.0以上状态栏文字颜色,设置为深色
             */
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && isSetLightStatusBar) {
-                activity.window.decorView.systemUiVisibility =
-                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            } else {
-                activity.window.decorView.systemUiVisibility =
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && isSetLightStatusBar) {
+            activity.window.decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        } else {
+            activity.window.decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }
     }
 }
