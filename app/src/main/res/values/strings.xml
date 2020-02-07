@@ -17,4 +17,6 @@
     <string name="title_home">功能</string>
     <string name="title_shade">共享</string>
     <string name="title_my">我的</string>
+    <string name="changeTitle">修改标题值</string>
+    <string name="tools">功能集</string>
 </resources>

@@ -4,4 +4,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="botom_nav_bg_color">#dbdbdb</color>
     <color name="black">#000000</color>
+    <color name="title_yellow">#74DF0A</color>
+    <color name="title_color_green">#82C24A</color>
 </resources>
