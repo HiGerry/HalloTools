@@ -17,15 +17,13 @@ import cn.sayhallo.hallotools.ui.adapter.ToolsAdapter
 
 class ToolsFragment : Fragment() {
 
-    private lateinit var toolsViewModel: ToolsViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val rl_home_title: RelativeLayout = root.findViewById(R.id.rl_home_title)
+        val rlHomeTitle: RelativeLayout = root.findViewById(R.id.rl_home_title)
 
         /*
       适配安卓4.4--5.0
@@ -37,7 +35,7 @@ class ToolsFragment : Fragment() {
                 "android"
             )
             val height = resources.getDimensionPixelSize(resourceId)
-            rl_home_title.setPadding(0, height, 0, 0)
+            rlHomeTitle.setPadding(0, height, 0, 0)
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val resourceId = resources.getIdentifier(
                 "status_bar_height",
@@ -45,14 +43,14 @@ class ToolsFragment : Fragment() {
                 "android"
             )
             val height = resources.getDimensionPixelSize(resourceId)
-            rl_home_title.setPadding(0, height, 0, 0)
+            rlHomeTitle.setPadding(0, height, 0, 0)
         }
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val rv_tools: RecyclerView = view.findViewById(R.id.rv_tools)
-        rv_tools.layoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,false)
+        val rvTools: RecyclerView = view.findViewById(R.id.rv_tools)
+        rvTools.layoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,false)
         val adapter = ToolsAdapter(getData())
         adapter.listener = object : ToolsAdapter.OnItemClickListener {
             override fun onItemClick(view: View, position: Int) {
@@ -73,7 +71,7 @@ class ToolsFragment : Fragment() {
 
 
         }
-        rv_tools.adapter = adapter
+        rvTools.adapter = adapter
     }
 
     private fun getData(): Array<out String> {

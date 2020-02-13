@@ -3,16 +3,26 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="沉浸式系列"
-        android:textColor="#000000"
-        android:textSize="16dp"
-        android:layout_height="46dp"/>
+        android:id="@+id/rv_title_immersive"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:text="@string/immersive_series"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:layout_height="46dp"/>
+
+    </RelativeLayout>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
+        android:id="@+id/rv_immersive"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"

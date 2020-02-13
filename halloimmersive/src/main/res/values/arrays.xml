@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="immersive_title">
+        <item>普通Activity测试</item>
+        <item>Activity嵌套多个Fragment的适配</item>
+        <item>Activity带侧边栏的适配</item>
+        <item>Activity带侧边栏和多个Fragment的适配</item>
+    </string-array>
+</resources>

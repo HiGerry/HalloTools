@@ -1,27 +1,27 @@
-package cn.sayhallo.hallotools.ui.adapter
+package cn.sayhallo.halloimmersive.test.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import cn.sayhallo.hallotools.R
+import cn.sayhallo.halloimmersive.R
 
-class ToolsAdapter(private val dataList: Array<out String>) : RecyclerView.Adapter<ToolsAdapter.VH>() {
+class ImmersiveItemAdapter(private var data: Array<out String>?) : RecyclerView.Adapter<ImmersiveItemAdapter.VH>() {
 
     var listener : OnItemClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        val view:View = LayoutInflater.from(parent.context).inflate(R.layout.item_tools,parent,false)
-        return VH(view)
+        val root:View = LayoutInflater.from(parent.context).inflate(R.layout.item_immersive,parent,false)
+        return VH(root)
     }
 
     override fun getItemCount(): Int {
-        return dataList.size
+        return data!!.size
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.tv.text = dataList[position]
+        holder.tv.text = data!![position]
         holder.itemView.setOnClickListener {
             listener?.onItemClick(it, position)
         }
@@ -32,7 +32,7 @@ class ToolsAdapter(private val dataList: Array<out String>) : RecyclerView.Adapt
     }
 
     inner class VH(view: View) : RecyclerView.ViewHolder(view) {
-        var tv:TextView = view.findViewById(R.id.item_tools_title)
+        var tv: TextView = view.findViewById(R.id.item_tools_title)
     }
 
     interface OnItemClickListener {

@@ -13,8 +13,16 @@ import cn.sayhallo.hallotools.ui.my.MyFragment
 import cn.sayhallo.hallotools.ui.sharelife.SharedLifeFragment
 import cn.sayhallo.hallotools.ui.tools.ToolsFragment
 import java.util.ArrayList
+import androidx.appcompat.app.AppCompatDelegate
+import cn.sayhallo.hallotools.R.id.*
+
 
 class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
+
+    init {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
+    }
+
     override fun onPageScrollStateChanged(state: Int) {
     }
 
@@ -23,24 +31,26 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
 
     override fun onPageSelected(position: Int) {
         when (position) {
-            0 -> nav_view!!.setSelectedItemId(R.id.navigation_home)
-            1 -> nav_view!!.setSelectedItemId(R.id.navigation_dashboard)
-            2 -> nav_view!!.setSelectedItemId(R.id.navigation_notifications)
+            0 -> navView!!.selectedItemId = navigation_home
+            1 -> navView!!.selectedItemId = navigation_dashboard
+            2 -> {
+                navView!!.selectedItemId = navigation_notifications
+            }
         }
     }
 
-    var viewpager: ViewPager? = null
-    var nav_view:BottomNavigationView? = null
+    private var viewpager: ViewPager? = null
+    private var navView:BottomNavigationView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        HalloStatusBar.setActivityAdapter(this,true)
+        HalloStatusBar.setActivityAdapter(this)
 
-        nav_view = findViewById(R.id.nav_view)
-        nav_view!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        viewpager = findViewById(R.id.main_viewpager)
-        viewpager!!.adapter = ViewPagerAdapter(supportFragmentManager, 0)
+        navView = findViewById(nav_view)
+        navView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        viewpager = findViewById(main_viewpager)
+        viewpager!!.adapter = ViewPagerAdapter(supportFragmentManager)
         viewpager!!.offscreenPageLimit = 2
         viewpager!!.addOnPageChangeListener(this)
     }
@@ -48,15 +58,15 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
 private val mOnNavigationItemSelectedListener =
     BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_home -> {
+            navigation_home -> {
                 viewpager!!.setCurrentItem(0, false)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_dashboard -> {
+            navigation_dashboard -> {
                 viewpager!!.setCurrentItem(1, false)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_notifications -> {
+            navigation_notifications -> {
                 viewpager!!.setCurrentItem(2, false)
                 return@OnNavigationItemSelectedListener true
             }
@@ -64,13 +74,13 @@ private val mOnNavigationItemSelectedListener =
         false
     }
 
-    private inner class ViewPagerAdapter(fm: FragmentManager, behavior: Int) :
+    private inner class ViewPagerAdapter(fm: FragmentManager) :
         FragmentStatePagerAdapter(fm) {
 
         private var fragments: ArrayList<Fragment>? = null
 
         init {
-            fragments = ArrayList<Fragment>()
+            fragments = ArrayList()
             fragments!!.add(ToolsFragment())
             fragments!!.add(SharedLifeFragment())
             fragments!!.add(MyFragment())
