@@ -28,7 +28,7 @@ class MoreFragmentlNavActivity : AppCompatActivity() {
         HalloStatusBar.setNavigationViewTopAdapter(drawerLayout)
         HalloStatusBar.setTopAdater(resources,navHeader)
         val vp: ViewPager = findViewById(R.id.vp_fragment)
-        vp.adapter = FragmentAdapter(supportFragmentManager)
+        vp.adapter = FragmentAdapter(supportFragmentManager,0)
     }
 
     fun intoActivity(context: Context, bundle: Bundle?) {
@@ -40,7 +40,7 @@ class MoreFragmentlNavActivity : AppCompatActivity() {
         }
     }
 
-    private inner class FragmentAdapter(fm: FragmentManager): FragmentStatePagerAdapter(fm) {
+    private inner class FragmentAdapter(fm: FragmentManager,behavior: Int): FragmentStatePagerAdapter(fm,behavior) {
 
         var fragments:ArrayList<Fragment>? = null
 

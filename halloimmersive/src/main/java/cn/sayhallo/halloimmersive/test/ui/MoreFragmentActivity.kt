@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
-import cn.sayhallo.halloimmersive.HalloStatusBar
+import cn.sayhallo.halloimmersive.HalloStatusBar.setActivityAdapter
 import cn.sayhallo.halloimmersive.R
 import cn.sayhallo.halloimmersive.test.ui.fragment.NormalFragment
 import cn.sayhallo.halloimmersive.test.ui.fragment.TopImageFragment
@@ -18,9 +18,9 @@ class MoreFragmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_more_fragment)
-        HalloStatusBar.setActivityAdapter(this)
+        setActivityAdapter(this)
         val vp:ViewPager = findViewById(R.id.vp_fragment)
-        vp.adapter = FragmentAdapter(supportFragmentManager)
+        vp.adapter = FragmentAdapter(supportFragmentManager,0)
 
     }
 
@@ -33,7 +33,7 @@ class MoreFragmentActivity : AppCompatActivity() {
         }
     }
 
-    private inner class FragmentAdapter(fm:FragmentManager):FragmentStatePagerAdapter(fm) {
+    private inner class FragmentAdapter(fm:FragmentManager,behavior: Int):FragmentStatePagerAdapter(fm,behavior) {
 
         var fragments:ArrayList<Fragment>? = null
 
