@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_screen_adaption_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="今日头条适配方案"
+        android:textSize="22sp" />
+
+   <Button
+       android:layout_width="@dimen/qb_px_200"
+       android:layout_height="@dimen/qb_px_40"
+       android:layout_marginTop="@dimen/qb_px_30"
+       android:background="@drawable/shape_bt_bg"
+       android:layout_gravity="center_horizontal"
+       android:text="Bt1"/>
+
+    <ImageView
+        android:layout_width="@dimen/qb_px_200"
+        android:layout_height="@dimen/qb_px_200"
+        android:layout_marginTop="@dimen/qb_px_20"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/img_test"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/qb_px_20"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <View
+            android:layout_width="@dimen/qb_px_100"
+            android:layout_height="@dimen/qb_px_50"
+            android:layout_marginLeft="@dimen/qb_px_10"
+            android:background="#B32F2F"/>
+
+        <View
+            android:layout_width="@dimen/qb_px_150"
+            android:layout_height="@dimen/qb_px_50"
+            android:layout_marginLeft="@dimen/qb_px_10"
+            android:background="#1CB6B1"/>
+
+        <View
+            android:layout_width="@dimen/qb_px_30"
+            android:layout_height="@dimen/qb_px_50"
+            android:layout_marginLeft="@dimen/qb_px_10"
+            android:background="#1CB6B1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/qb_px_20"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <View
+            android:layout_width="@dimen/qb_px_100"
+            android:layout_height="@dimen/qb_px_150"
+            android:layout_marginLeft="@dimen/qb_px_10"
+            android:background="#B32F2F"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_50"
+            android:layout_marginLeft="@dimen/qb_px_10"
+            android:background="#1CB6B1"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="@dimen/qb_px_360"
+        android:layout_height="@dimen/qb_px_50"
+        android:gravity="right|center_vertical"
+        android:text="我是一个文本框"
+        android:background="#80E20E"/>
+
+</LinearLayout>

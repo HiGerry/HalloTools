@@ -2,5 +2,6 @@
 <resources>
     <string-array name="tools_title">
         <item>沉浸式实验</item>
+        <item>屏幕适配实验</item>
     </string-array>
 </resources>

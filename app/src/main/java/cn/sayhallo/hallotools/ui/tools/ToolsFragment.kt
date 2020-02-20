@@ -1,6 +1,5 @@
 package cn.sayhallo.hallotools.ui.tools
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,10 +8,11 @@ import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import cn.sayhallo.halloimmersive.HalloStatusBar
 import cn.sayhallo.halloimmersive.test.ImmersiveItemAdapterActivity
 import cn.sayhallo.hallotools.R
 import cn.sayhallo.hallotools.ui.adapter.ToolsAdapter
-
+import cn.sayhallo.screenadaption.test.ScreenAdaptionActivity
 
 
 class ToolsFragment : Fragment() {
@@ -24,27 +24,7 @@ class ToolsFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val rlHomeTitle: RelativeLayout = root.findViewById(R.id.rl_home_title)
-
-        /*
-      适配安卓4.4--5.0
-       */
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            val resourceId = resources.getIdentifier(
-                "status_bar_height",
-                "dimen",
-                "android"
-            )
-            val height = resources.getDimensionPixelSize(resourceId)
-            rlHomeTitle.setPadding(0, height, 0, 0)
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val resourceId = resources.getIdentifier(
-                "status_bar_height",
-                "dimen",
-                "android"
-            )
-            val height = resources.getDimensionPixelSize(resourceId)
-            rlHomeTitle.setPadding(0, height, 0, 0)
-        }
+        HalloStatusBar.setTopAdater(resources,rlHomeTitle)
         return root
     }
 
@@ -59,6 +39,7 @@ class ToolsFragment : Fragment() {
                  */
                 when(position) {
                     0 -> ImmersiveItemAdapterActivity().intoActivity(context!!,null)
+                    1 -> ScreenAdaptionActivity().intoActivity(context!!,null)
                 }
             }
 
@@ -66,7 +47,6 @@ class ToolsFragment : Fragment() {
                 /*
                 弹出沉浸式相关的介绍说明
                  */
-
             }
 
 

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="adapter_title">
+        <item>今日头条适配方案</item>
+    </string-array>
+</resources>

@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.sayhallo.screenadaption" >
+
+    <application>
+        <activity android:name=".test.ScreenAdaptionActivity" />
+        <activity android:name=".test.ui.ScreenAdaptionTestActivity" />
+    </application>
+</manifest>
