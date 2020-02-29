@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cn.sayhallo.halloimmersive.HalloStatusBar
 import cn.sayhallo.halloimmersive.test.ImmersiveItemAdapterActivity
 import cn.sayhallo.hallotools.R
+import cn.sayhallo.hallotools.ui.AnnotationTestActivity
 import cn.sayhallo.hallotools.ui.adapter.ToolsAdapter
 import cn.sayhallo.screenadaption.test.ScreenAdaptionActivity
 
@@ -40,6 +41,7 @@ class ToolsFragment : Fragment() {
                 when(position) {
                     0 -> ImmersiveItemAdapterActivity().intoActivity(context!!,null)
                     1 -> ScreenAdaptionActivity().intoActivity(context!!,null)
+                    2 -> AnnotationTestActivity().intoActivity(context!!,null)
                 }
             }
 

@@ -14,8 +14,9 @@ import cn.sayhallo.hallotools.ui.sharelife.SharedLifeFragment
 import cn.sayhallo.hallotools.ui.tools.ToolsFragment
 import java.util.ArrayList
 import androidx.appcompat.app.AppCompatDelegate
+import cn.sayhallo.hallo_annotation.BindView
+import cn.sayhallo.hallo_butterknife.HalloButterKnife
 import cn.sayhallo.hallotools.R.id.*
-
 
 class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
 
@@ -40,14 +41,17 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
     }
 
     private var viewpager: ViewPager? = null
-    private var navView:BottomNavigationView? = null
+
+    @JvmField
+    @BindView(id = nav_view)
+    var navView:BottomNavigationView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         HalloStatusBar.setActivityAdapter(this)
+        HalloButterKnife.bind(this)
 
-        navView = findViewById(nav_view)
         navView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         viewpager = findViewById(main_viewpager)
         viewpager!!.adapter = ViewPagerAdapter(supportFragmentManager)

@@ -3,5 +3,6 @@
     <string-array name="tools_title">
         <item>沉浸式实验</item>
         <item>屏幕适配实验</item>
+        <item>注解及apt实现简易butterknife</item>
     </string-array>
 </resources>

@@ -1,2 +1,2 @@
-include ':app', ':halloimmersive', ':screenadaption'
+include ':app', ':halloimmersive', ':screenadaption', ':hallo_annotation', ':hallo_compiler', ':hallo_butterknife'
 rootProject.name='HalloTools'
